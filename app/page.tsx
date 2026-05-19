@@ -139,7 +139,7 @@ function FireService() {
           <div className="flex items-center gap-3 mb-6">
             <Flame className="w-4 h-4 text-flame" />
             <span className="font-mono-tag text-flame">
-              Especialidade Principal
+              01 / Especialidade Principal
             </span>
           </div>
           <h2 className="text-white font-display font-semibold text-[36px] lg:text-[54px] leading-[1.02] tracking-[-0.03em]">
@@ -205,10 +205,15 @@ function SecondaryServices() {
     <section className="bg-surface">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 lg:py-32">
         <div className="max-w-2xl mb-14">
-          <span className="font-mono-tag text-flame">Áreas complementares</span>
+          <span className="font-mono-tag text-flame">02 / Demais Áreas</span>
           <h2 className="mt-4 font-display font-semibold text-ink text-[32px] lg:text-[44px] leading-[1.05] tracking-tight">
-            Outras frentes de atuação técnica
+            Duas frentes complementares com o mesmo rigor metodológico.
           </h2>
+          <p className="mt-5 text-ink-muted text-[15.5px] leading-[1.7] max-w-xl">
+            Além da especialidade principal em incêndios e explosões, atuamos
+            com a mesma profundidade técnica em duas frentes complementares
+            de igual relevância.
+          </p>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           {cards.map((c) => (
@@ -266,7 +271,7 @@ function Methodology() {
     <section id="metodologia" className="surface-navy-deep">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 lg:py-32">
         <div className="max-w-2xl mb-16">
-          <span className="font-mono-tag text-flame">Metodologia</span>
+          <span className="font-mono-tag text-flame">03 / Metodologia</span>
           <h2 className="mt-4 font-display font-semibold text-white text-[32px] lg:text-[44px] leading-[1.05] tracking-tight">
             Um processo rigoroso, do acionamento ao laudo.
           </h2>
@@ -299,54 +304,120 @@ function Methodology() {
 }
 
 function BrazilMap() {
-  const dots: [number, number, number][] = [
-    [50, 8, 0.5], [55, 12, 0.6], [60, 16, 0.7], [65, 20, 0.7], [70, 24, 0.6],
-    [45, 14, 0.6], [50, 18, 0.7], [55, 22, 0.8], [60, 26, 0.8], [65, 30, 0.8], [70, 34, 0.7], [75, 38, 0.6],
-    [40, 22, 0.6], [45, 26, 0.8], [50, 30, 0.9], [55, 34, 1.0], [60, 38, 1.0], [65, 42, 0.9], [70, 46, 0.7], [78, 44, 0.5],
-    [38, 30, 0.6], [43, 34, 0.8], [48, 38, 1.0], [53, 42, 1.0], [58, 46, 1.0], [63, 50, 0.9], [68, 54, 0.7],
-    [40, 40, 0.7], [45, 44, 0.9], [50, 48, 1.0], [55, 52, 1.0], [60, 56, 0.9], [65, 60, 0.7],
-    [42, 50, 0.8], [47, 54, 1.0], [52, 58, 1.0], [57, 62, 0.9], [62, 66, 0.7],
-    [44, 60, 0.7], [49, 64, 0.9], [54, 68, 0.9], [59, 72, 0.7],
-    [46, 70, 0.7], [51, 74, 0.8], [56, 78, 0.7],
-    [48, 80, 0.7], [53, 84, 0.6],
-    [50, 88, 0.5],
+  const brazilOutline =
+    "M 38 12 C 46 9 56 8 64 11 C 70 13 75 17 78 22 C 81 27 83 33 85 39 C 86 45 86 51 83 57 C 80 64 75 70 68 74 C 62 78 55 81 50 84 C 44 86 38 84 33 79 C 27 73 22 66 19 58 C 16 50 15 41 18 33 C 20 26 24 20 30 16 C 33 14 36 13 38 12 Z";
+
+  const interiorDots: [number, number][] = [
+    [40, 18], [48, 16], [55, 17], [62, 19], [68, 22],
+    [36, 24], [44, 24], [52, 25], [60, 26], [70, 28], [76, 30],
+    [32, 32], [40, 32], [48, 33], [56, 34], [64, 35], [72, 36],
+    [30, 40], [38, 41], [46, 42], [54, 43], [62, 44], [70, 45], [78, 46],
+    [28, 48], [36, 49], [44, 50], [52, 51], [60, 52], [68, 53], [76, 54],
+    [30, 56], [38, 57], [46, 58], [54, 59], [62, 60], [70, 61],
+    [32, 64], [40, 65], [48, 66], [56, 67], [64, 68],
+    [36, 72], [44, 73], [52, 74], [60, 75],
+    [40, 78], [48, 79],
   ];
-  const highlights: [number, number, string][] = [
-    [55, 36, "São Paulo"],
-    [62, 32, "Rio de Janeiro"],
-    [50, 28, "Brasília"],
-    [48, 60, "Porto Alegre"],
-    [70, 22, "Salvador"],
-    [55, 14, "Manaus"],
+
+  const sede: [number, number] = [64, 60];
+  const otherBases: [number, number, string][] = [
+    [55, 60, "SP"],
+    [50, 67, "PR"],
   ];
+
   return (
-    <div className="relative aspect-square w-full max-w-[520px] ml-auto">
+    <div className="relative aspect-square w-full max-w-[560px] ml-auto">
       <svg viewBox="0 0 100 100" className="w-full h-full">
-        {dots.map(([x, y, i], idx) => (
-          <circle
-            key={idx}
-            cx={x}
-            cy={y}
-            r={0.9}
-            fill="oklch(0.21 0.04 260)"
-            opacity={i * 0.55}
+        <defs>
+          <clipPath id="brazil-clip">
+            <path d={brazilOutline} />
+          </clipPath>
+        </defs>
+
+        <path
+          d={brazilOutline}
+          fill="none"
+          stroke="oklch(0.48 0.01 260 / 0.4)"
+          strokeWidth="0.4"
+        />
+
+        <g clipPath="url(#brazil-clip)">
+          {interiorDots.map(([x, y], idx) => (
+            <circle
+              key={idx}
+              cx={x}
+              cy={y}
+              r={0.45}
+              fill="oklch(0.48 0.01 260)"
+              opacity={0.45}
+            />
+          ))}
+        </g>
+
+        {otherBases.map(([x, y]) => (
+          <line
+            key={`route-${x}-${y}`}
+            x1={sede[0]}
+            y1={sede[1]}
+            x2={x}
+            y2={y}
+            stroke="oklch(0.70 0.17 45)"
+            strokeWidth="0.3"
+            strokeDasharray="1.2 0.8"
+            opacity={0.7}
           />
         ))}
-        {highlights.map(([x, y, name]) => (
-          <g key={name}>
-            <circle cx={x} cy={y} r={1.4} fill="oklch(0.70 0.17 45)" />
+
+        {otherBases.map(([x, y, label]) => (
+          <g key={label}>
             <circle
               cx={x}
               cy={y}
-              r={3}
+              r={1.2}
               fill="oklch(0.70 0.17 45)"
-              opacity={0.18}
             />
+            <text
+              x={x - 3}
+              y={y + 0.6}
+              fontSize="2.2"
+              fill="oklch(0.48 0.01 260)"
+              textAnchor="end"
+              fontFamily="system-ui, sans-serif"
+              fontWeight="500"
+            >
+              {label}
+            </text>
           </g>
         ))}
+
+        <g>
+          <circle
+            cx={sede[0]}
+            cy={sede[1]}
+            r={4}
+            fill="oklch(0.70 0.17 45)"
+            opacity={0.15}
+          />
+          <circle
+            cx={sede[0]}
+            cy={sede[1]}
+            r={1.6}
+            fill="oklch(0.70 0.17 45)"
+          />
+          <text
+            x={sede[0] + 2.5}
+            y={sede[1] + 0.8}
+            fontSize="2.2"
+            fill="oklch(0.18 0.03 260)"
+            fontFamily="system-ui, sans-serif"
+            fontWeight="600"
+          >
+            RJ · Sede
+          </text>
+        </g>
       </svg>
-      <div className="absolute bottom-0 right-0 font-mono-tag text-ink-muted">
-        Brasil · 26 estados + DF
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 font-mono-tag text-ink-muted text-[10px] tracking-[0.18em]">
+        Cobertura Nacional · Ilustrativo
       </div>
     </div>
   );
@@ -357,31 +428,47 @@ function Coverage() {
     <section className="bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 lg:py-32 grid lg:grid-cols-2 gap-16 items-center">
         <div>
-          <span className="font-mono-tag text-flame">Cobertura</span>
-          <h2 className="mt-4 font-display font-semibold text-ink text-[32px] lg:text-[44px] leading-[1.05] tracking-tight">
-            Atuação em todo o território nacional.
+          <span className="font-mono-tag text-flame">04 / Cobertura</span>
+          <h2 className="mt-4 font-display font-semibold text-ink text-[32px] lg:text-[48px] leading-[1.04] tracking-[-0.03em]">
+            Atuação em todo o<br />território nacional.
           </h2>
           <p className="mt-6 text-ink-muted text-[16px] leading-[1.7] max-w-xl">
-            Estrutura logística preparada para mobilização ágil em qualquer
-            região do Brasil. Atendemos seguradoras, escritórios jurídicos e
-            corporações com tempo de resposta crítico, mantendo o mesmo padrão
-            técnico em capitais e localidades remotas.
+            Mobilizamos equipes técnicas para qualquer região do país.
+            Estrutura logística preparada para sinistros de média e grande
+            complexidade, com base operacional no Rio de Janeiro e rede
+            técnica atuando em todas as cinco regiões do Brasil.
           </p>
-          <div className="mt-10 grid grid-cols-2 gap-6 max-w-md">
-            <div className="border-t border-flame pt-3">
-              <div className="font-display font-semibold text-ink text-[24px]">
-                24h
+          <div className="mt-12 grid grid-cols-2 gap-x-10 gap-y-8 max-w-lg">
+            <div>
+              <div className="font-mono-tag text-ink-muted/70 mb-2">
+                Tempo de Resposta
               </div>
-              <div className="text-[12.5px] text-ink-muted mt-1">
-                tempo médio de mobilização
+              <div className="font-display font-semibold text-ink text-[28px] leading-none tracking-tight">
+                ≤ 72h
               </div>
             </div>
-            <div className="border-t border-border pt-3">
-              <div className="font-display font-semibold text-ink text-[24px]">
-                5 regiões
+            <div>
+              <div className="font-mono-tag text-ink-muted/70 mb-2">
+                Bases Técnicas
               </div>
-              <div className="text-[12.5px] text-ink-muted mt-1">
-                cobertura simultânea
+              <div className="font-display font-semibold text-ink text-[28px] leading-none tracking-tight">
+                RJ · SP · PR
+              </div>
+            </div>
+            <div>
+              <div className="font-mono-tag text-ink-muted/70 mb-2">
+                Regiões Cobertas
+              </div>
+              <div className="font-display font-semibold text-ink text-[28px] leading-none tracking-tight">
+                5 / 5
+              </div>
+            </div>
+            <div>
+              <div className="font-mono-tag text-ink-muted/70 mb-2">
+                Atuação Internacional
+              </div>
+              <div className="font-display font-semibold text-ink text-[28px] leading-none tracking-tight">
+                NFPA
               </div>
             </div>
           </div>
@@ -400,25 +487,25 @@ function Credentials() {
       name: "IAAI (FIT)",
       href: "https://www.firearson.com/credentials/iaai-fit/",
       src: "/credentials/iaai-fit.svg",
-      invertDefault: true,
+      whiteSource: false,
     },
     {
       name: "ENS",
       href: "https://www.ens.edu.br/",
       src: "/credentials/ens.svg",
-      invertDefault: false,
+      whiteSource: true,
     },
     {
       name: "CREA-RJ",
       href: "https://www.crea-rj.org.br/",
       src: "/credentials/crea-rj.png",
-      invertDefault: true,
+      whiteSource: false,
     },
     {
       name: "IBAPE-RJ",
       href: "https://ibape-rj.org.br/",
       src: "/credentials/ibape.png",
-      invertDefault: true,
+      whiteSource: false,
     },
   ];
   const affiliations = [
@@ -426,13 +513,13 @@ function Credentials() {
       name: "CREA-RJ (Pessoa Jurídica)",
       href: "https://www.crea-rj.org.br/",
       src: "/credentials/crea-rj.png",
-      invertDefault: true,
+      whiteSource: false,
     },
     {
       name: "ABRELPS",
       href: "https://abrelps.org.br/",
       src: "/credentials/abrelps.png",
-      invertDefault: false,
+      whiteSource: true,
     },
   ];
   return (
@@ -441,7 +528,7 @@ function Credentials() {
         <div className="max-w-3xl">
           <div className="flex items-center gap-3 mb-5">
             <ShieldCheck className="w-4 h-4 text-flame" />
-            <span className="font-mono-tag text-flame">Trust Core</span>
+            <span className="font-mono-tag text-flame">05 / Credenciais</span>
           </div>
           <h2 className="font-display font-semibold text-white text-[32px] lg:text-[48px] leading-[1.05] tracking-[-0.03em]">
             Credenciais e Filiações
@@ -461,7 +548,7 @@ function Credentials() {
             </h3>
             <span className="flex-1 h-px bg-white/10" />
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {certs.map((c) => (
               <a
                 key={c.name}
@@ -469,20 +556,22 @@ function Credentials() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title={`Visitar ${c.name}`}
-                className="group bg-navy hover:bg-navy-deep p-8 lg:p-10 flex flex-col items-center justify-center gap-5 min-h-[180px] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-flame"
+                className="group flex flex-col items-stretch gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-flame"
               >
-                <div className="relative w-full h-16 flex items-center justify-center">
-                  <Image
-                    src={c.src}
-                    alt={`Logo ${c.name}`}
-                    fill
-                    sizes="(max-width: 768px) 40vw, 18vw"
-                    className={`object-contain transition-all duration-300 group-hover:[filter:none] ${
-                      c.invertDefault ? "[filter:brightness(0)_invert(1)] opacity-80 group-hover:opacity-100" : "opacity-90 group-hover:opacity-100"
-                    }`}
-                  />
+                <div className="bg-white p-6 min-h-[140px] flex items-center justify-center transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
+                  <div className="relative w-full h-20">
+                    <Image
+                      src={c.src}
+                      alt={`Logo ${c.name}`}
+                      fill
+                      sizes="(max-width: 768px) 40vw, 18vw"
+                      className={`object-contain ${
+                        c.whiteSource ? "[filter:invert(1)]" : ""
+                      }`}
+                    />
+                  </div>
                 </div>
-                <span className="font-mono-tag text-white/45 group-hover:text-flame transition-colors text-[11px]">
+                <span className="font-mono-tag text-white/50 group-hover:text-flame transition-colors text-center text-[11px]">
                   {c.name} →
                 </span>
               </a>
@@ -498,7 +587,7 @@ function Credentials() {
             </h3>
             <span className="flex-1 h-px bg-white/10" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {affiliations.map((a) => (
               <a
                 key={a.name}
@@ -506,21 +595,23 @@ function Credentials() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title={`Visitar ${a.name}`}
-                className="group bg-navy hover:bg-navy-deep p-8 flex items-center justify-between gap-6 min-h-[140px] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-flame"
+                className="group flex flex-col gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-flame"
               >
-                <div className="relative w-32 lg:w-44 h-14 shrink-0">
-                  <Image
-                    src={a.src}
-                    alt={`Logo ${a.name}`}
-                    fill
-                    sizes="180px"
-                    className={`object-contain object-left transition-all duration-300 group-hover:[filter:none] ${
-                      a.invertDefault ? "[filter:brightness(0)_invert(1)] opacity-80 group-hover:opacity-100" : "opacity-90 group-hover:opacity-100"
-                    }`}
-                  />
+                <div className="bg-white p-6 min-h-[140px] flex items-center justify-center gap-6 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
+                  <div className="relative w-40 lg:w-52 h-16 shrink-0">
+                    <Image
+                      src={a.src}
+                      alt={`Logo ${a.name}`}
+                      fill
+                      sizes="220px"
+                      className={`object-contain ${
+                        a.whiteSource ? "[filter:invert(1)]" : ""
+                      }`}
+                    />
+                  </div>
                 </div>
-                <div className="flex-1 flex items-center justify-end gap-3">
-                  <span className="font-mono-tag text-white/50 group-hover:text-flame transition-colors text-right">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono-tag text-white/50 group-hover:text-flame transition-colors">
                     {a.name}
                   </span>
                   <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-flame transition-colors shrink-0" />
@@ -561,7 +652,7 @@ function Clients() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 lg:py-32">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
           <div className="max-w-2xl">
-            <span className="font-mono-tag text-flame">Confiança</span>
+            <span className="font-mono-tag text-flame">06 / Clientes</span>
             <h2 className="mt-4 font-display font-semibold text-ink text-[32px] lg:text-[44px] leading-[1.05] tracking-tight">
               Empresas que confiaram em nossa atuação.
             </h2>
@@ -600,7 +691,7 @@ function About() {
     <section id="sobre" className="bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 lg:py-32 grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
         <div className="lg:col-span-7 order-2 lg:order-1">
-          <span className="font-mono-tag text-flame">Sobre a Lauden</span>
+          <span className="font-mono-tag text-flame">07 / Sobre a Lauden</span>
           <h2 className="mt-4 font-display font-semibold text-ink text-[32px] lg:text-[48px] leading-[1.04] tracking-[-0.03em]">
             Engenharia forense conduzida com independência técnica.
           </h2>
@@ -638,7 +729,7 @@ function ContactSection() {
     <section id="contato" className="ember-glow relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 lg:py-32 grid lg:grid-cols-12 gap-14">
         <div className="lg:col-span-5">
-          <span className="font-mono-tag text-flame">Contato</span>
+          <span className="font-mono-tag text-flame">08 / Contato</span>
           <h2 className="mt-4 font-display font-semibold text-white text-[34px] lg:text-[48px] leading-[1.04] tracking-[-0.03em]">
             Precisa de uma perícia técnica?
           </h2>
