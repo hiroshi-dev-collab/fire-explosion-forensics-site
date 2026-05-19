@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Flame, MessageCircle } from "lucide-react";
+import Image from "next/image";
+import { MessageCircle } from "lucide-react";
 
 const NAV = [
   { href: "#sobre", label: "Sobre" },
@@ -16,27 +17,19 @@ function Logo({ light = false }: { light?: boolean }) {
   return (
     <a
       href="#top"
-      className="flex items-center gap-2.5 group transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-flame"
+      aria-label="Lauden Experts — voltar ao topo"
+      className="flex items-center transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-flame"
     >
-      <span className="relative grid place-items-center w-9 h-9 rounded-sm bg-flame">
-        <Flame className="w-5 h-5 text-white" strokeWidth={2.2} />
-      </span>
-      <span className="flex flex-col leading-none">
-        <span
-          className={`font-display font-semibold text-[17px] tracking-tight ${
-            light ? "text-white" : "text-ink"
-          }`}
-        >
-          Lauden <span className="text-flame">Experts</span>
-        </span>
-        <span
-          className={`font-mono-tag mt-1 ${
-            light ? "text-white/55" : "text-ink-muted"
-          }`}
-        >
-          Engenharia Forense
-        </span>
-      </span>
+      <Image
+        src="/lauden-logo.png"
+        alt="Lauden Experts"
+        width={520}
+        height={170}
+        priority
+        className={`h-10 w-auto transition-[filter] duration-300 ${
+          light ? "brightness-0 invert" : ""
+        }`}
+      />
     </a>
   );
 }

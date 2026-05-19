@@ -50,12 +50,21 @@ export const metadata: Metadata = {
     siteName: "Lauden Experts",
     type: "website",
     locale: "pt_BR",
+    images: [
+      {
+        url: "/lauden-og-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Lauden Experts — Engenharia Forense",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Lauden Experts — Perícias Forenses de Engenharia",
     description:
       "Laudos técnicos com fundamentação rigorosa e validação internacional. Atendimento confidencial em todo o Brasil.",
+    images: ["/lauden-og-banner.png"],
   },
   robots: {
     index: true,

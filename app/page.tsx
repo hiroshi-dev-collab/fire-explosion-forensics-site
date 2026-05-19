@@ -396,14 +396,44 @@ function Coverage() {
 
 function Credentials() {
   const certs = [
-    { name: "IAAI (FIT)", href: "https://www.firearson.com/credentials/iaai-fit/" },
-    { name: "ENS", href: "https://www.ens.edu.br/" },
-    { name: "CREA", href: "https://www.crea-rj.org.br/" },
-    { name: "IBAPE-RJ", href: "https://ibape-rj.org.br/" },
+    {
+      name: "IAAI (FIT)",
+      href: "https://www.firearson.com/credentials/iaai-fit/",
+      src: "/credentials/iaai-fit.svg",
+      invertDefault: true,
+    },
+    {
+      name: "ENS",
+      href: "https://www.ens.edu.br/",
+      src: "/credentials/ens.svg",
+      invertDefault: false,
+    },
+    {
+      name: "CREA-RJ",
+      href: "https://www.crea-rj.org.br/",
+      src: "/credentials/crea-rj.png",
+      invertDefault: true,
+    },
+    {
+      name: "IBAPE-RJ",
+      href: "https://ibape-rj.org.br/",
+      src: "/credentials/ibape.png",
+      invertDefault: true,
+    },
   ];
   const affiliations = [
-    { name: "CREA (Pessoa Jurídica)", href: "https://www.crea-rj.org.br/" },
-    { name: "ABRELPS", href: "https://abrelps.org.br/" },
+    {
+      name: "CREA-RJ (Pessoa Jurídica)",
+      href: "https://www.crea-rj.org.br/",
+      src: "/credentials/crea-rj.png",
+      invertDefault: true,
+    },
+    {
+      name: "ABRELPS",
+      href: "https://abrelps.org.br/",
+      src: "/credentials/abrelps.png",
+      invertDefault: false,
+    },
   ];
   return (
     <section id="credenciais" className="ember-glow">
@@ -438,13 +468,22 @@ function Credentials() {
                 href={c.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-navy hover:bg-navy-deep p-8 lg:p-10 flex flex-col items-center justify-center gap-3 min-h-[140px] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-flame"
+                title={`Visitar ${c.name}`}
+                className="group bg-navy hover:bg-navy-deep p-8 lg:p-10 flex flex-col items-center justify-center gap-5 min-h-[180px] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-flame"
               >
-                <span className="font-display font-semibold text-white/85 group-hover:text-flame transition-colors text-[18px] tracking-tight">
-                  {c.name}
-                </span>
-                <span className="font-mono-tag text-white/40 group-hover:text-white/70 transition-colors">
-                  Visitar →
+                <div className="relative w-full h-16 flex items-center justify-center">
+                  <Image
+                    src={c.src}
+                    alt={`Logo ${c.name}`}
+                    fill
+                    sizes="(max-width: 768px) 40vw, 18vw"
+                    className={`object-contain transition-all duration-300 group-hover:[filter:none] ${
+                      c.invertDefault ? "[filter:brightness(0)_invert(1)] opacity-80 group-hover:opacity-100" : "opacity-90 group-hover:opacity-100"
+                    }`}
+                  />
+                </div>
+                <span className="font-mono-tag text-white/45 group-hover:text-flame transition-colors text-[11px]">
+                  {c.name} →
                 </span>
               </a>
             ))}
@@ -466,12 +505,26 @@ function Credentials() {
                 href={a.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-navy hover:bg-navy-deep p-8 flex items-center justify-between transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-flame"
+                title={`Visitar ${a.name}`}
+                className="group bg-navy hover:bg-navy-deep p-8 flex items-center justify-between gap-6 min-h-[140px] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-flame"
               >
-                <span className="font-display font-semibold text-white/85 group-hover:text-flame transition-colors text-[17px]">
-                  {a.name}
-                </span>
-                <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-flame transition-colors" />
+                <div className="relative w-32 lg:w-44 h-14 shrink-0">
+                  <Image
+                    src={a.src}
+                    alt={`Logo ${a.name}`}
+                    fill
+                    sizes="180px"
+                    className={`object-contain object-left transition-all duration-300 group-hover:[filter:none] ${
+                      a.invertDefault ? "[filter:brightness(0)_invert(1)] opacity-80 group-hover:opacity-100" : "opacity-90 group-hover:opacity-100"
+                    }`}
+                  />
+                </div>
+                <div className="flex-1 flex items-center justify-end gap-3">
+                  <span className="font-mono-tag text-white/50 group-hover:text-flame transition-colors text-right">
+                    {a.name}
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-flame transition-colors shrink-0" />
+                </div>
               </a>
             ))}
           </div>
@@ -483,10 +536,25 @@ function Credentials() {
 
 function Clients() {
   const clients = [
-    "AMBEV", "Cosan", "Copersucar", "EMS", "Rede D'Or", "Positivo",
-    "Record", "FTI Consulting", "Bradesco", "Porto Seguro", "SulAmérica",
-    "Tokio Marine", "Allianz", "Mapfre", "Zurich", "Liberty",
-    "Suzano", "Vale", "Petrobras",
+    { name: "AMBEV", src: "/clients/ambev.jpg" },
+    { name: "Cosan", src: "/clients/cosan.png" },
+    { name: "Copersucar", src: "/clients/copersucar.png" },
+    { name: "EMS", src: "/clients/ems.jpg" },
+    { name: "Rede D'Or", src: "/clients/rede-dor.png" },
+    { name: "Positivo", src: "/clients/positivo.png" },
+    { name: "Record", src: "/clients/record.avif" },
+    { name: "FTI Consulting", src: "/clients/fti-consulting.png" },
+    { name: "EMCCAMP", src: "/clients/emccamp.png" },
+    { name: "Veste", src: "/clients/veste.png" },
+    { name: "Portinari", src: "/clients/portinari.png" },
+    { name: "Pacheco", src: "/clients/pacheco.png" },
+    { name: "A Nossa Drogaria", src: "/clients/a-nossa-drogaria.jpg" },
+    { name: "Badim", src: "/clients/badim.png" },
+    { name: "BR Marinas", src: "/clients/br-marinas.jpg" },
+    { name: "Bell-Art", src: "/clients/bell-art.jpg" },
+    { name: "Multilog", src: "/clients/multilog.webp" },
+    { name: "TCI BPO", src: "/clients/tci-bpo.png" },
+    { name: "Trem do Corcovado", src: "/clients/trem-corcovado.png" },
   ];
   return (
     <section id="clientes" className="bg-surface">
@@ -506,12 +574,19 @@ function Clients() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-px bg-border">
           {clients.map((c) => (
             <div
-              key={c}
-              className="bg-white aspect-[5/3] grid place-items-center group cursor-default"
+              key={c.name}
+              className="bg-white aspect-[5/3] grid place-items-center p-6 group cursor-default"
+              title={c.name}
             >
-              <span className="font-display font-semibold text-ink-muted/80 text-[15px] tracking-tight group-hover:text-flame transition-colors">
-                {c}
-              </span>
+              <div className="relative w-full h-full">
+                <Image
+                  src={c.src}
+                  alt={`Logo ${c.name}`}
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 18vw"
+                  className="object-contain grayscale opacity-70 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+                />
+              </div>
             </div>
           ))}
         </div>
@@ -601,19 +676,16 @@ function Footer() {
         <div>
           <a
             href="#top"
-            className="flex items-center gap-2.5 group transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-flame"
+            aria-label="Lauden Experts — voltar ao topo"
+            className="inline-flex transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-flame"
           >
-            <span className="relative grid place-items-center w-9 h-9 rounded-sm bg-flame">
-              <Flame className="w-5 h-5 text-white" strokeWidth={2.2} />
-            </span>
-            <span className="flex flex-col leading-none">
-              <span className="font-display font-semibold text-[17px] tracking-tight text-white">
-                Lauden <span className="text-flame">Experts</span>
-              </span>
-              <span className="font-mono-tag mt-1 text-white/55">
-                Engenharia Forense
-              </span>
-            </span>
+            <Image
+              src="/lauden-logo.png"
+              alt="Lauden Experts"
+              width={520}
+              height={170}
+              className="h-12 w-auto brightness-0 invert"
+            />
           </a>
           <p className="mt-5 text-white/55 text-[13.5px] leading-[1.7] max-w-xs">
             Perícia de engenharia independente. Investigação de incêndio,
