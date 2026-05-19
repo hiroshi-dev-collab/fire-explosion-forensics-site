@@ -54,7 +54,7 @@ export function ContactForm() {
         </span>
 
         <a
-          href="https://wa.me/5521000000000"
+          href="https://wa.me/5521984774076"
           className="inline-flex items-center justify-center gap-2 h-12 px-6 border border-emerald-400/40 text-emerald-300 hover:bg-emerald-400 hover:text-navy text-[14px] font-medium rounded-sm transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400"
         >
           <MessageCircle className="w-4 h-4" /> Falar agora pelo WhatsApp

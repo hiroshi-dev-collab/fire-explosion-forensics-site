@@ -72,7 +72,7 @@ export function SiteHeader() {
         </nav>
         <div className="flex items-center gap-3">
           <a
-            href="https://wa.me/5521000000000"
+            href="https://wa.me/5521984774076"
             className={`hidden sm:inline-flex items-center gap-2 px-4 h-10 rounded-sm border text-[13px] font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-flame ${
               scrolled
                 ? "border-flame text-flame hover:bg-flame hover:text-white"

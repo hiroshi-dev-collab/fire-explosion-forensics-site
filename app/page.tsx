@@ -515,14 +515,14 @@ function Credentials() {
   const affiliations = [
     {
       name: "CREA-RJ",
-      sub: "Pessoa Jurídica registrada",
+      sub: "Pessoa Jurídica · Reg. 2019201553",
       href: "https://www.crea-rj.org.br/",
       src: "/credentials/crea-rj.png",
       whiteSource: false,
     },
     {
       name: "ABRELPS",
-      sub: "Associação Brasileira de Engenharia Legal",
+      sub: "Membro registrado · Nº 879492",
       href: "https://abrelps.org.br/",
       src: "/credentials/abrelps.png",
       whiteSource: true,
@@ -756,15 +756,15 @@ function ContactSection() {
           <div className="mt-10 space-y-5 text-[14.5px] text-white/80">
             <div className="flex items-start gap-3">
               <MapPin className="w-4 h-4 text-flame mt-1 shrink-0" />
-              <span>Rio de Janeiro · RJ · Brasil</span>
+              <span>Niterói · RJ · Brasil</span>
             </div>
             <div className="flex items-start gap-3">
               <Phone className="w-4 h-4 text-flame mt-1 shrink-0" />
-              <span>+55 (21) 0000-0000</span>
+              <span>+55 (21) 98477-4076</span>
             </div>
             <div className="flex items-start gap-3">
               <Mail className="w-4 h-4 text-flame mt-1 shrink-0" />
-              <span>contato@laudenexperts.com.br</span>
+              <span>contato@lauden.com.br</span>
             </div>
           </div>
         </div>
@@ -817,16 +817,16 @@ function Footer() {
         <div>
           <h4 className="font-mono-tag text-white/40 mb-5">Contato</h4>
           <ul className="space-y-3 text-[13.5px] text-white/75">
-            <li>Rio de Janeiro · RJ</li>
-            <li>+55 (21) 0000-0000</li>
-            <li>contato@laudenexperts.com.br</li>
+            <li>Niterói · RJ</li>
+            <li>+55 (21) 98477-4076</li>
+            <li>contato@lauden.com.br</li>
           </ul>
         </div>
       </div>
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-6 lg:px-10 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-[12px] text-white/45">
           <span>
-            CNPJ 00.000.000/0001-00 · © {new Date().getFullYear()} Lauden Experts
+            CNPJ 21.009.574/0001-09 · © {new Date().getFullYear()} Lauden Experts
           </span>
           <a
             href="#"
@@ -843,7 +843,7 @@ function Footer() {
 function FloatingWhatsApp() {
   return (
     <a
-      href="https://wa.me/5521000000000"
+      href="https://wa.me/5521984774076"
       aria-label="WhatsApp"
       className="lg:hidden fixed bottom-5 right-5 z-40 grid place-items-center w-14 h-14 rounded-full bg-emerald-500 text-white shadow-2xl transition-all hover:bg-emerald-600 hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-flame"
     >

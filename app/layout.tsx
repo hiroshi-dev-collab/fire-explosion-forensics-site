@@ -24,7 +24,7 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://laudenexperts.com.br"),
+  metadataBase: new URL("https://lauden.com.br"),
   title: "Lauden Experts — Perícias de Incêndio, Explosão e Acidentes",
   description:
     "Perícia de engenharia independente especializada em incêndio, explosão, acidentes industriais e perícia ambiental. Atuação nacional para seguradoras, escritórios jurídicos e grandes corporações.",
