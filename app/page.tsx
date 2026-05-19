@@ -485,24 +485,28 @@ function Credentials() {
   const certs = [
     {
       name: "IAAI (FIT)",
+      sub: "Certificação internacional",
       href: "https://www.firearson.com/credentials/iaai-fit/",
       src: "/credentials/iaai-fit.svg",
       whiteSource: false,
     },
     {
       name: "ENS",
+      sub: "Escola de Negócios e Seguros",
       href: "https://www.ens.edu.br/",
       src: "/credentials/ens.svg",
       whiteSource: true,
     },
     {
       name: "CREA-RJ",
+      sub: "Engenheiros credenciados",
       href: "https://www.crea-rj.org.br/",
       src: "/credentials/crea-rj.png",
       whiteSource: false,
     },
     {
       name: "IBAPE-RJ",
+      sub: "Avaliações e perícias",
       href: "https://ibape-rj.org.br/",
       src: "/credentials/ibape.png",
       whiteSource: false,
@@ -510,13 +514,15 @@ function Credentials() {
   ];
   const affiliations = [
     {
-      name: "CREA-RJ (Pessoa Jurídica)",
+      name: "CREA-RJ",
+      sub: "Pessoa Jurídica registrada",
       href: "https://www.crea-rj.org.br/",
       src: "/credentials/crea-rj.png",
       whiteSource: false,
     },
     {
       name: "ABRELPS",
+      sub: "Associação Brasileira de Engenharia Legal",
       href: "https://abrelps.org.br/",
       src: "/credentials/abrelps.png",
       whiteSource: true,
@@ -558,8 +564,8 @@ function Credentials() {
                 title={`Visitar ${c.name}`}
                 className="group flex flex-col items-stretch gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-flame"
               >
-                <div className="bg-white p-6 min-h-[140px] flex items-center justify-center transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
-                  <div className="relative w-full h-20">
+                <div className="bg-white p-6 min-h-[180px] flex items-center justify-center transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
+                  <div className="relative w-full h-28">
                     <Image
                       src={c.src}
                       alt={`Logo ${c.name}`}
@@ -571,9 +577,14 @@ function Credentials() {
                     />
                   </div>
                 </div>
-                <span className="font-mono-tag text-white/50 group-hover:text-flame transition-colors text-center text-[11px]">
-                  {c.name} →
-                </span>
+                <div className="text-center">
+                  <div className="font-mono-tag text-white/55 group-hover:text-flame transition-colors text-[11px]">
+                    {c.name} →
+                  </div>
+                  <div className="text-[11px] text-white/35 mt-1.5 leading-tight">
+                    {c.sub}
+                  </div>
+                </div>
               </a>
             ))}
           </div>
@@ -597,23 +608,28 @@ function Credentials() {
                 title={`Visitar ${a.name}`}
                 className="group flex flex-col gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-flame"
               >
-                <div className="bg-white p-6 min-h-[140px] flex items-center justify-center gap-6 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
-                  <div className="relative w-40 lg:w-52 h-16 shrink-0">
+                <div className="bg-white p-8 min-h-[200px] flex items-center justify-center transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
+                  <div className="relative w-full max-w-[260px] h-24">
                     <Image
                       src={a.src}
                       alt={`Logo ${a.name}`}
                       fill
-                      sizes="220px"
+                      sizes="300px"
                       className={`object-contain ${
                         a.whiteSource ? "[filter:invert(1)]" : ""
                       }`}
                     />
                   </div>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="font-mono-tag text-white/50 group-hover:text-flame transition-colors">
-                    {a.name}
-                  </span>
+                <div className="flex items-end justify-between gap-4">
+                  <div>
+                    <div className="font-mono-tag text-white/55 group-hover:text-flame transition-colors">
+                      {a.name} →
+                    </div>
+                    <div className="text-[11.5px] text-white/35 mt-1.5 leading-tight">
+                      {a.sub}
+                    </div>
+                  </div>
                   <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-flame transition-colors shrink-0" />
                 </div>
               </a>
