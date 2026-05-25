@@ -347,15 +347,15 @@ function Methodology() {
 function BrazilMap() {
   const W = 220000;
   const H = 194010;
-  const sede: [number, number] = [160000, 138000];
+  const sede: [number, number] = [152860, 135140];
 
   const destinations: [number, number][] = [
-    [70000, 28000],
-    [165000, 38000],
-    [190000, 78000],
-    [80000, 105000],
-    [50000, 88000],
-    [115000, 172000],
+    [48538, 45866],
+    [169852, 53374],
+    [157345, 93035],
+    [91270, 89386],
+    [23169, 71975],
+    [101977, 175926],
   ];
 
   const arrows = destinations.map(([x, y]) => {
