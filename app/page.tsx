@@ -47,17 +47,18 @@ function Hero() {
           <div className="flex items-center gap-3 mb-8">
             <span className="h-px w-10 bg-flame" />
             <span className="font-mono-tag text-flame">
-              Perícia de Engenharia · Atuação Nacional
+              Perícia de Engenharia · Rio de Janeiro e Todo o Brasil
             </span>
           </div>
-          <h1 className="text-white font-display font-semibold text-[40px] sm:text-[56px] lg:text-[76px] leading-[0.98] tracking-[-0.035em]">
-            Perícias de incêndio, explosão e acidentes com{" "}
-            <span className="text-flame">rigor técnico</span>.
+          <h1 className="text-white font-display font-semibold text-[40px] sm:text-[56px] lg:text-[72px] leading-[1.02] tracking-[-0.035em]">
+            Perícias de incêndios e explosões, acidentes e meio ambiente com{" "}
+            <span className="text-flame">rigor técnico e respaldo normativo</span>.
           </h1>
           <p className="mt-8 max-w-2xl text-white/72 text-[17px] lg:text-[19px] leading-[1.65]">
-            Investigação independente para seguradoras, escritórios jurídicos e
-            grandes corporações. Laudos técnicos com fundamentação rigorosa e
-            validação internacional.
+            Assessoria técnica e perícia de engenharia para seguradoras,
+            escritórios de advocacia e empresas. Laudos fundamentados na
+            NFPA 921, nas normas da ABNT e em protocolos internacionalmente
+            reconhecidos.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <a
@@ -74,16 +75,49 @@ function Hero() {
             </a>
           </div>
         </div>
-        <div className="mt-16 lg:mt-24 pt-6 hairline-dark flex flex-wrap items-center gap-x-8 gap-y-3">
-          <span className="font-mono-tag text-white/45">Credenciados</span>
-          {["IAAI (FIT)", "CREA", "IBAPE", "ABRELPS", "ENS"].map((c) => (
-            <span
-              key={c}
-              className="text-[13px] text-white/75 font-medium tracking-wide"
-            >
-              {c}
-            </span>
-          ))}
+        <div className="mt-16 lg:mt-24 pt-6 hairline-dark">
+          <span className="font-mono-tag text-white/45 block mb-5">
+            Certificações e Associações
+          </span>
+          <div className="flex flex-wrap items-center gap-x-10 gap-y-6">
+            {[
+              { name: "IAAI", src: "/credentials/iaai.png", href: "https://www.firearson.com/", h: "h-14", chip: false },
+              { name: "ENS", src: "/credentials/ens.svg", href: "https://www.ens.edu.br/", h: "h-8", chip: false },
+              { name: "CREA-RJ", src: "/credentials/crea-rj.png", href: "https://www.crea-rj.org.br/", h: "h-9", chip: true },
+              { name: "IBAPE", src: "/credentials/ibape.png", href: "https://ibape-rj.org.br/", h: "h-9", chip: true },
+              { name: "ABRELPS", src: "/credentials/abrelps.png", href: "https://abrelps.org.br/", h: "h-7", chip: false },
+            ].map((c) => (
+              <a
+                key={c.name}
+                href={c.href}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                title={c.name}
+                aria-label={`Visitar ${c.name}`}
+                className="relative shrink-0 opacity-90 hover:opacity-100 transition-opacity focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-flame"
+              >
+                {c.chip ? (
+                  <div className="bg-white/85 backdrop-blur-sm rounded-sm px-3 py-1.5 flex items-center">
+                    <Image
+                      src={c.src}
+                      alt={`Logo ${c.name}`}
+                      width={160}
+                      height={56}
+                      className={`${c.h} w-auto object-contain`}
+                    />
+                  </div>
+                ) : (
+                  <Image
+                    src={c.src}
+                    alt={`Logo ${c.name}`}
+                    width={160}
+                    height={56}
+                    className={`${c.h} w-auto object-contain`}
+                  />
+                )}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -92,9 +126,9 @@ function Hero() {
 
 function AuthorityStrip() {
   const items = [
-    { n: "+15", l: "anos de atuação técnica" },
+    { n: "+10", l: "anos de atuação técnica" },
     { n: "100%", l: "do território nacional" },
-    { n: "IAAI", l: "certificação internacional" },
+    { n: "IAAI (FIT)", l: "certificação internacional em investigação de incêndios" },
     { n: "3", l: "esferas: judicial, administrativa e securitária" },
   ];
   return (
@@ -117,12 +151,11 @@ function AuthorityStrip() {
 
 function FireService() {
   const bullets = [
-    "Determinação de causa, origem e propagação",
-    "Identificação do agente ignitor",
-    "Análise de responsabilidade técnica",
-    "Reconstrução do evento e linha do tempo",
-    "Análise de sistemas de proteção e prevenção",
-    "Suporte a processos judiciais e securitários",
+    "Determinação de causa, origem e dinâmica de propagação",
+    "Identificação dos fatores contribuintes",
+    "Avaliação das medidas de segurança contra incêndio e pânico",
+    "Proposição de recomendações de segurança",
+    "Assistência técnica a processos judiciais, arbitrais e de seguros",
   ];
   return (
     <section id="areas" className="surface-navy relative overflow-hidden">
@@ -147,12 +180,18 @@ function FireService() {
           </h2>
           <p className="mt-6 text-white/70 text-[16.5px] leading-[1.7] max-w-2xl">
             Atuamos na investigação técnica de sinistros de incêndio e
-            explosões em ambientes industriais, comerciais, residenciais e
-            patrimoniais. Nossa metodologia segue padrões reconhecidos
-            internacionalmente (NFPA 921 / 1033), garantindo laudos com
-            fundamentação científica e validade processual.
+            explosão em ambientes industriais, comerciais, residenciais,
+            veículos e propriedades rurais. Nossa metodologia é fundamentada
+            na NFPA 921 — guia de referência mundial para investigação de
+            incêndios e explosões — assegurando laudos com fundamentação
+            científica e plena validade processual.
           </p>
-          <ul className="mt-10 grid sm:grid-cols-2 gap-x-8 gap-y-4">
+          <div className="mt-10 mb-5">
+            <span className="font-mono-tag text-white/45">
+              Escopo de Atuação
+            </span>
+          </div>
+          <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
             {bullets.map((b) => (
               <li
                 key={b}
@@ -176,7 +215,7 @@ function FireService() {
             <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent opacity-60" />
           </div>
           <div className="absolute -bottom-4 -left-4 bg-flame text-white px-5 py-3 font-mono-tag">
-            NFPA 921 · NFPA 1033
+            NFPA 921
           </div>
         </div>
       </div>
