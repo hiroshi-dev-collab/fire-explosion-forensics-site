@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import Image from "next/image";
 import {
   Flame,
@@ -349,10 +351,10 @@ function BrazilMap() {
 
   const destinations: [number, number][] = [
     [80000, 45000],
-    [188000, 55000],
-    [180000, 95000],
+    [175000, 55000],
+    [175000, 95000],
     [95000, 100000],
-    [50000, 95000],
+    [65000, 100000],
     [105000, 160000],
   ];
 
@@ -367,20 +369,21 @@ function BrazilMap() {
     };
   });
 
+  const svgFile = fs.readFileSync(
+    path.join(process.cwd(), "public", "brazil-states.svg"),
+    "utf-8"
+  );
+  const mapInner = svgFile.match(/<svg[^>]*>([\s\S]*)<\/svg>/)?.[1] ?? "";
+
   return (
     <div className="ml-auto w-full max-w-[600px]">
       <div
         className="relative w-full"
         style={{ aspectRatio: `${W} / ${H}` }}
       >
-        <img
-          src="/brazil-states.svg?v=2"
-          alt="Mapa do Brasil"
-          className="absolute inset-0 w-full h-full"
-        />
         <svg
           viewBox={`0 0 ${W} ${H}`}
-          className="absolute inset-0 w-full h-full pointer-events-none"
+          className="absolute inset-0 w-full h-full"
         >
           <defs>
             <marker
@@ -395,6 +398,8 @@ function BrazilMap() {
               <path d="M 0 0 L 5 3 L 0 6 Z" fill="#e87b3a" />
             </marker>
           </defs>
+
+          <g dangerouslySetInnerHTML={{ __html: mapInner }} />
 
           {arrows.map((a, i) => (
             <line
