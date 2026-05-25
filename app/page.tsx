@@ -691,19 +691,23 @@ function About() {
         <div className="lg:col-span-7 order-2 lg:order-1">
           <span className="font-mono-tag text-flame">07 / Sobre a Lauden</span>
           <h2 className="mt-4 font-display font-semibold text-ink text-[32px] lg:text-[48px] leading-[1.04] tracking-[-0.03em]">
-            Engenharia forense conduzida com independência técnica.
+            Engenharia forense a serviço do seu resultado.
           </h2>
           <p className="mt-7 text-ink-muted text-[16.5px] leading-[1.75] max-w-2xl">
-            A Lauden Experts foi constituída para atender uma demanda
-            específica do mercado brasileiro: perícias técnicas conduzidas com
-            o mesmo rigor metodológico das principais consultorias forenses
-            internacionais. Nosso compromisso é com a verdade técnica — e
-            apenas com ela.
+            A Lauden Experts nasceu para suprir uma demanda específica do
+            mercado brasileiro: perícias técnicas conduzidas com o mesmo rigor
+            das principais consultorias forenses internacionais, mas com foco
+            total no resultado do cliente.
           </p>
           <p className="mt-4 text-ink-muted text-[16.5px] leading-[1.75] max-w-2xl">
-            Trabalhamos com transparência absoluta sobre nossas conclusões,
-            metodologia auditável e respeito integral aos prazos críticos dos
-            nossos clientes.
+            Reunimos profissionais com formação de alto nível, certificações
+            internacionais e sólida experiência em sinistros de alta
+            complexidade.
+          </p>
+          <p className="mt-4 text-ink-muted text-[16.5px] leading-[1.75] max-w-2xl">
+            Atuamos nas esferas judicial, administrativa e securitária com
+            conclusões tecnicamente defensáveis e respeito integral aos
+            prazos dos nossos clientes.
           </p>
         </div>
         <div className="lg:col-span-5 order-1 lg:order-2">
@@ -733,12 +737,12 @@ function ContactSection() {
           </h2>
           <p className="mt-6 text-white/70 text-[16px] leading-[1.7] max-w-md">
             Atendimento confidencial para seguradoras, escritórios jurídicos e
-            empresas. Resposta em até 24 horas úteis.
+            empresas. Retorno em até 24 horas.
           </p>
           <div className="mt-10 space-y-5 text-[14.5px] text-white/80">
             <div className="flex items-start gap-3">
               <MapPin className="w-4 h-4 text-flame mt-1 shrink-0" />
-              <span>Niterói · RJ · Brasil</span>
+              <span>Rio de Janeiro · Brasil</span>
             </div>
             <div className="flex items-start gap-3">
               <Phone className="w-4 h-4 text-flame mt-1 shrink-0" />
@@ -799,7 +803,7 @@ function Footer() {
         <div>
           <h4 className="font-mono-tag text-white/40 mb-5">Contato</h4>
           <ul className="space-y-3 text-[13.5px] text-white/75">
-            <li>Niterói · RJ</li>
+            <li>Rio de Janeiro · Brasil</li>
             <li>+55 (21) 98477-4076</li>
             <li>contato@lauden.com.br</li>
           </ul>
