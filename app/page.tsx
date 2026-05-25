@@ -621,26 +621,26 @@ function Credentials() {
 }
 
 function Clients() {
-  const clients = [
-    { name: "AMBEV", src: "/clients/ambev.jpg" },
+  const clients: { name: string; src: string; scale?: number }[] = [
+    { name: "AMBEV", src: "/clients/ambev.jpg", scale: 1.4 },
     { name: "Cosan", src: "/clients/cosan.png" },
     { name: "Copersucar", src: "/clients/copersucar.png" },
-    { name: "EMS", src: "/clients/ems.jpg" },
+    { name: "EMS", src: "/clients/ems.jpg", scale: 1.4 },
     { name: "Rede D'Or", src: "/clients/rede-dor.png" },
     { name: "Positivo", src: "/clients/positivo.png" },
     { name: "Record", src: "/clients/record.avif" },
     { name: "FTI Consulting", src: "/clients/fti-consulting.png" },
     { name: "EMCCAMP", src: "/clients/emccamp.png" },
     { name: "Veste", src: "/clients/veste.png" },
-    { name: "Portinari", src: "/clients/portinari.png" },
+    { name: "Portinari", src: "/clients/portinari.png", scale: 1.3 },
     { name: "Pacheco", src: "/clients/pacheco.png" },
     { name: "A Nossa Drogaria", src: "/clients/a-nossa-drogaria.jpg" },
-    { name: "Badim", src: "/clients/badim.png" },
+    { name: "Badim", src: "/clients/badim.png", scale: 1.5 },
     { name: "BR Marinas", src: "/clients/br-marinas.jpg" },
     { name: "Bell-Art", src: "/clients/bell-art.jpg" },
-    { name: "Multilog", src: "/clients/multilog.webp" },
+    { name: "Multilog", src: "/clients/multilog.webp", scale: 1.4 },
     { name: "TCI BPO", src: "/clients/tci-bpo.png" },
-    { name: "Trem do Corcovado", src: "/clients/trem-corcovado.png" },
+    { name: "Trem do Corcovado", src: "/clients/trem-corcovado.png", scale: 1.4 },
   ];
   return (
     <section id="clientes" className="bg-surface">
@@ -664,7 +664,10 @@ function Clients() {
               className="bg-white aspect-[5/3] grid place-items-center p-6 group cursor-default"
               title={c.name}
             >
-              <div className="relative w-full h-full">
+              <div
+                className="relative w-full h-full"
+                style={c.scale ? { transform: `scale(${c.scale})` } : undefined}
+              >
                 <Image
                   src={c.src}
                   alt={`Logo ${c.name}`}
