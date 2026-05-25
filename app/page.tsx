@@ -621,26 +621,26 @@ function Credentials() {
 }
 
 function Clients() {
-  const clients: { name: string; src: string; scale?: number }[] = [
-    { name: "AMBEV", src: "/clients/ambev.jpg", scale: 1.4 },
-    { name: "Cosan", src: "/clients/cosan.png" },
-    { name: "Copersucar", src: "/clients/copersucar.png" },
-    { name: "EMS", src: "/clients/ems.jpg", scale: 1.4 },
-    { name: "Rede D'Or", src: "/clients/rede-dor.png" },
-    { name: "Positivo", src: "/clients/positivo.png" },
-    { name: "Record", src: "/clients/record.avif" },
-    { name: "FTI Consulting", src: "/clients/fti-consulting.png" },
-    { name: "EMCCAMP", src: "/clients/emccamp.png" },
-    { name: "Veste", src: "/clients/veste.png" },
-    { name: "Portinari", src: "/clients/portinari.png", scale: 1.3 },
-    { name: "Pacheco", src: "/clients/pacheco.png" },
-    { name: "A Nossa Drogaria", src: "/clients/a-nossa-drogaria.jpg" },
-    { name: "Badim", src: "/clients/badim.png", scale: 1.5 },
-    { name: "BR Marinas", src: "/clients/br-marinas.jpg" },
-    { name: "Bell-Art", src: "/clients/bell-art.jpg" },
-    { name: "Multilog", src: "/clients/multilog.webp", scale: 1.8 },
-    { name: "TCI BPO", src: "/clients/tci-bpo.png" },
-    { name: "Trem do Corcovado", src: "/clients/trem-corcovado.png", scale: 1.6 },
+  const clients: { name: string; src: string; href?: string; scale?: number }[] = [
+    { name: "AMBEV", src: "/clients/ambev.jpg", href: "https://www.ambev.com.br", scale: 1.4 },
+    { name: "Cosan", src: "/clients/cosan.png", href: "https://www.cosan.com.br" },
+    { name: "Copersucar", src: "/clients/copersucar.png", href: "https://www.copersucar.com.br" },
+    { name: "EMS Farmacêutica", src: "/clients/ems.jpg", href: "https://www.ems.com.br", scale: 1.4 },
+    { name: "Rede D'Or", src: "/clients/rede-dor.png", href: "https://www.rededorsaoluiz.com.br" },
+    { name: "Positivo Tecnologia", src: "/clients/positivo.png", href: "https://www.positivotecnologia.com.br" },
+    { name: "Record TV", src: "/clients/record.avif", href: "https://www.recordtv.com.br" },
+    { name: "FTI Consulting", src: "/clients/fti-consulting.png", href: "https://www.fticonsulting.com" },
+    { name: "EMCCAMP Residencial", src: "/clients/emccamp.png", href: "https://emccamp.com.br" },
+    { name: "Veste S.A. Estilo", src: "/clients/veste.png", href: "https://www.veste.com" },
+    { name: "Projeto Portinari", src: "/clients/portinari.png", href: "https://www.portinari.org.br", scale: 1.3 },
+    { name: "Drogarias Pacheco", src: "/clients/pacheco.png", href: "https://www.drogariaspacheco.com.br" },
+    { name: "A Nossa Drogaria", src: "/clients/a-nossa-drogaria.jpg", href: "https://www.anossadrogaria.com.br" },
+    { name: "Hospital Badim", src: "/clients/badim.png", scale: 1.5 },
+    { name: "BR Marinas", src: "/clients/br-marinas.jpg", href: "https://brmarinas.com.br" },
+    { name: "Bell'Art", src: "/clients/bell-art.jpg" },
+    { name: "Multilog", src: "/clients/multilog.webp", href: "https://site.multilog.com.br", scale: 1.8 },
+    { name: "TCI BPO", src: "/clients/tci-bpo.png", href: "https://www.tcibpo.com" },
+    { name: "Trem do Corcovado", src: "/clients/trem-corcovado.png", href: "https://www.tremdocorcovado.rio", scale: 1.6 },
   ];
   return (
     <section id="clientes" className="bg-surface">
@@ -658,12 +658,8 @@ function Clients() {
           </p>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-px bg-border">
-          {clients.map((c) => (
-            <div
-              key={c.name}
-              className="bg-white aspect-[5/3] grid place-items-center p-6 group cursor-default"
-              title={c.name}
-            >
+          {clients.map((c) => {
+            const inner = (
               <div
                 className="relative w-full h-full"
                 style={c.scale ? { transform: `scale(${c.scale})` } : undefined}
@@ -676,8 +672,29 @@ function Clients() {
                   className="object-contain grayscale opacity-70 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
                 />
               </div>
-            </div>
-          ))}
+            );
+            return c.href ? (
+              <a
+                key={c.name}
+                href={c.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`Visitar site da ${c.name}`}
+                aria-label={`Visitar site da ${c.name} (abre em nova aba)`}
+                className="bg-white aspect-[5/3] grid place-items-center p-6 group focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-flame"
+              >
+                {inner}
+              </a>
+            ) : (
+              <div
+                key={c.name}
+                title={c.name}
+                className="bg-white aspect-[5/3] grid place-items-center p-6 group cursor-default"
+              >
+                {inner}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
