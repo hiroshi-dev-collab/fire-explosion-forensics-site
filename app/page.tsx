@@ -471,28 +471,21 @@ function Credentials() {
   const certs = [
     {
       name: "IAAI (FIT)",
-      sub: "Certificação internacional",
+      sub: "Certificação internacional em perícia de incêndio e explosão",
       href: "https://www.firearson.com/credentials/iaai-fit/",
-      src: "/credentials/iaai-fit.svg",
+      src: "/credentials/iaai.png",
       whiteSource: false,
     },
     {
       name: "ENS",
-      sub: "Escola de Negócios e Seguros",
+      sub: "Certificação em Regulação e Liquidação de Sinistros pela Escola Nacional de Seguros",
       href: "https://www.ens.edu.br/",
       src: "/credentials/ens.svg",
       whiteSource: true,
     },
     {
-      name: "CREA-RJ",
-      sub: "Engenheiros credenciados",
-      href: "https://www.crea-rj.org.br/",
-      src: "/credentials/crea-rj.png",
-      whiteSource: false,
-    },
-    {
-      name: "IBAPE-RJ",
-      sub: "Avaliações e perícias",
+      name: "IBAPE",
+      sub: "Associação ao Instituto Brasileiro de Avaliações e Perícias",
       href: "https://ibape-rj.org.br/",
       src: "/credentials/ibape.png",
       whiteSource: false,
@@ -501,14 +494,14 @@ function Credentials() {
   const affiliations = [
     {
       name: "CREA-RJ",
-      sub: "Pessoa Jurídica · Reg. 2019201553",
+      sub: "Registrada (nº 2019201553) no Conselho Regional de Engenharia e Agronomia",
       href: "https://www.crea-rj.org.br/",
       src: "/credentials/crea-rj.png",
       whiteSource: false,
     },
     {
       name: "ABRELPS",
-      sub: "Membro registrado · Nº 879492",
+      sub: "Registrada (nº 879492) na Associação Brasileira de Reguladores, Liquidantes e Peritos de Sinistros",
       href: "https://abrelps.org.br/",
       src: "/credentials/abrelps.png",
       whiteSource: true,
@@ -523,12 +516,12 @@ function Credentials() {
             <span className="font-mono-tag text-flame">05 / Credenciais</span>
           </div>
           <h2 className="font-display font-semibold text-white text-[32px] lg:text-[48px] leading-[1.05] tracking-[-0.03em]">
-            Credenciais e Filiações
+            Certificações e Filiações
           </h2>
           <p className="mt-5 text-white/65 text-[16px] leading-[1.7]">
-            Validação técnica reconhecida no Brasil e no exterior. Nossos
-            profissionais e a sociedade mantêm vínculos ativos com as
-            principais entidades técnicas do setor.
+            Nossos profissionais e a empresa mantêm certificações e
+            associações ativas com as principais entidades técnicas do setor
+            no Brasil e no exterior.
           </p>
         </div>
 
@@ -536,11 +529,11 @@ function Credentials() {
           <div className="flex items-center gap-4 mb-8">
             <Award className="w-4 h-4 text-white/60" />
             <h3 className="font-mono-tag text-white/60">
-              Certificações dos Profissionais
+              Dos Profissionais
             </h3>
             <span className="flex-1 h-px bg-white/10" />
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {certs.map((c) => (
               <a
                 key={c.name}
@@ -580,7 +573,7 @@ function Credentials() {
           <div className="flex items-center gap-4 mb-8">
             <Building2 className="w-4 h-4 text-white/60" />
             <h3 className="font-mono-tag text-white/60">
-              Filiações Institucionais
+              Da Lauden Experts
             </h3>
             <span className="flex-1 h-px bg-white/10" />
           </div>
