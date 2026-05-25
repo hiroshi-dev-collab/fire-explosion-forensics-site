@@ -229,15 +229,15 @@ function SecondaryServices() {
       icon: Wrench,
       title: "Investigação de Acidentes e Incidentes",
       body:
-        "Análise técnica de acidentes industriais, falhas de equipamento, incidentes de trabalho e eventos catastróficos. Investigação de causa-raiz com fundamentação em normas técnicas brasileiras e internacionais.",
-      tag: "INDUSTRIAL · EQUIPAMENTOS · TRABALHO",
+        "Análise técnica de acidentes industriais, de trabalho e sinistros de alta complexidade. A investigação de causa-raiz segue a metodologia estruturada da IEC 62740 — norma internacional que define princípios e diretrizes para análise de causa-raiz — garantindo rastreabilidade das conclusões e solidez técnica para uso judicial, administrativo e securitário.",
+      tag: "INDUSTRIAL · TRABALHO · ALTA COMPLEXIDADE",
     },
     {
       icon: Leaf,
       title: "Perícia Ambiental",
       body:
-        "Avaliação de contaminação de solo e água, danos ambientais, conformidade com legislação ambiental e suporte técnico em passivos ambientais para empresas e órgãos públicos.",
-      tag: "CONTAMINAÇÃO · DANOS · COMPLIANCE",
+        "Assistência técnica na contestação de autos de infração, laudos periciais e avaliações de danos ambientais. Atuação na análise crítica da caracterização do dano e na revisão dos métodos de valoração aplicados, com fundamentação nas Resoluções CONAMA e nos métodos da ABNT NBR 14653-6.",
+      tag: "ASSISTÊNCIA TÉCNICA · DANOS AMBIENTAIS",
     },
   ];
   return (
@@ -288,22 +288,22 @@ function Methodology() {
     {
       icon: Phone,
       title: "Acionamento e análise preliminar",
-      body: "Triagem do caso, alinhamento de escopo e mobilização imediata de equipe especializada.",
+      body: "Triagem do caso, definição do escopo técnico e mobilização da equipe especializada.",
     },
     {
       icon: Search,
       title: "Investigação técnica no local",
-      body: "Vistoria, coleta de evidências, documentação fotográfica e ensaios de campo conforme protocolo.",
+      body: "Vistoria do local, coleta e preservação de evidências, documentação fotográfica e ensaios de campo.",
     },
     {
       icon: Microscope,
-      title: "Análise laboratorial e documental",
-      body: "Exames técnicos, análise de projetos, registros e cruzamento de informações periciais.",
+      title: "Análise das evidências",
+      body: "Análise das evidências coletadas, da documentação existente e cruzamento de informações periciais para formação das conclusões técnicas.",
     },
     {
       icon: FileText,
-      title: "Laudo técnico fundamentado",
-      body: "Emissão de laudo com conclusão técnica clara, defensável judicial e securitariamente.",
+      title: "Laudo ou relatório técnico fundamentado",
+      body: "Emissão de laudo ou relatório técnico fundamentado para uso nas esferas judicial, administrativa e securitária.",
     },
   ];
   return (
@@ -326,7 +326,7 @@ function Methodology() {
                 <span className="relative z-10 grid place-items-center w-14 h-14 bg-navy border border-flame/40 text-flame font-mono-tag text-[12px]">
                   0{i + 1}
                 </span>
-                <s.icon className="w-5 h-5 text-white/50" strokeWidth={1.5} />
+                <s.icon className="w-8 h-8 text-white/70" strokeWidth={1.4} />
               </div>
               <h3 className="text-white font-display font-semibold text-[18px] leading-snug tracking-tight">
                 {s.title}
@@ -343,120 +343,92 @@ function Methodology() {
 }
 
 function BrazilMap() {
-  const brazilOutline =
-    "M 38 12 C 46 9 56 8 64 11 C 70 13 75 17 78 22 C 81 27 83 33 85 39 C 86 45 86 51 83 57 C 80 64 75 70 68 74 C 62 78 55 81 50 84 C 44 86 38 84 33 79 C 27 73 22 66 19 58 C 16 50 15 41 18 33 C 20 26 24 20 30 16 C 33 14 36 13 38 12 Z";
+  const W = 220000;
+  const H = 194010;
+  const sede: [number, number] = [162000, 130000];
 
-  const interiorDots: [number, number][] = [
-    [40, 18], [48, 16], [55, 17], [62, 19], [68, 22],
-    [36, 24], [44, 24], [52, 25], [60, 26], [70, 28], [76, 30],
-    [32, 32], [40, 32], [48, 33], [56, 34], [64, 35], [72, 36],
-    [30, 40], [38, 41], [46, 42], [54, 43], [62, 44], [70, 45], [78, 46],
-    [28, 48], [36, 49], [44, 50], [52, 51], [60, 52], [68, 53], [76, 54],
-    [30, 56], [38, 57], [46, 58], [54, 59], [62, 60], [70, 61],
-    [32, 64], [40, 65], [48, 66], [56, 67], [64, 68],
-    [36, 72], [44, 73], [52, 74], [60, 75],
-    [40, 78], [48, 79],
+  const destinations: [number, number][] = [
+    [80000, 45000],
+    [188000, 55000],
+    [180000, 95000],
+    [95000, 100000],
+    [50000, 95000],
+    [105000, 160000],
   ];
 
-  const sede: [number, number] = [64, 60];
-  const otherBases: [number, number, string][] = [
-    [55, 60, "SP"],
-    [50, 67, "PR"],
-  ];
+  const arrows = destinations.map(([x, y]) => {
+    const dx = x - sede[0];
+    const dy = y - sede[1];
+    const len = Math.sqrt(dx * dx + dy * dy);
+    const t = (len - 5000) / len;
+    return {
+      endX: sede[0] + dx * t,
+      endY: sede[1] + dy * t,
+    };
+  });
 
   return (
-    <div className="relative aspect-square w-full max-w-[560px] ml-auto">
-      <svg viewBox="0 0 100 100" className="w-full h-full">
-        <defs>
-          <clipPath id="brazil-clip">
-            <path d={brazilOutline} />
-          </clipPath>
-        </defs>
-
-        <path
-          d={brazilOutline}
-          fill="none"
-          stroke="oklch(0.48 0.01 260 / 0.4)"
-          strokeWidth="0.4"
+    <div className="ml-auto w-full max-w-[600px]">
+      <div
+        className="relative w-full"
+        style={{ aspectRatio: `${W} / ${H}` }}
+      >
+        <img
+          src="/brazil-states.svg?v=2"
+          alt="Mapa do Brasil"
+          className="absolute inset-0 w-full h-full"
         />
+        <svg
+          viewBox={`0 0 ${W} ${H}`}
+          className="absolute inset-0 w-full h-full pointer-events-none"
+        >
+          <defs>
+            <marker
+              id="arrowhead"
+              markerWidth="6"
+              markerHeight="6"
+              refX="4.5"
+              refY="3"
+              orient="auto"
+              markerUnits="strokeWidth"
+            >
+              <path d="M 0 0 L 5 3 L 0 6 Z" fill="#e87b3a" />
+            </marker>
+          </defs>
 
-        <g clipPath="url(#brazil-clip)">
-          {interiorDots.map(([x, y], idx) => (
-            <circle
-              key={idx}
-              cx={x}
-              cy={y}
-              r={0.45}
-              fill="oklch(0.48 0.01 260)"
-              opacity={0.45}
+          {arrows.map((a, i) => (
+            <line
+              key={i}
+              x1={sede[0]}
+              y1={sede[1]}
+              x2={a.endX}
+              y2={a.endY}
+              stroke="#e87b3a"
+              strokeWidth="900"
+              opacity={0.9}
+              markerEnd="url(#arrowhead)"
+              strokeLinecap="round"
             />
           ))}
-        </g>
 
-        {otherBases.map(([x, y]) => (
-          <line
-            key={`route-${x}-${y}`}
-            x1={sede[0]}
-            y1={sede[1]}
-            x2={x}
-            y2={y}
-            stroke="oklch(0.70 0.17 45)"
-            strokeWidth="0.3"
-            strokeDasharray="1.2 0.8"
-            opacity={0.7}
-          />
-        ))}
-
-        {otherBases.map(([x, y, label]) => (
-          <g key={label}>
-            <circle
-              cx={x}
-              cy={y}
-              r={1.2}
-              fill="oklch(0.70 0.17 45)"
-            />
+          <g>
+            <circle cx={sede[0]} cy={sede[1]} r={9500} fill="#e87b3a" opacity={0.18} />
+            <circle cx={sede[0]} cy={sede[1]} r={3400} fill="#e87b3a" />
             <text
-              x={x - 3}
-              y={y + 0.6}
-              fontSize="2.2"
-              fill="oklch(0.48 0.01 260)"
-              textAnchor="end"
+              x={sede[0] + 5500}
+              y={sede[1] + 2200}
+              fontSize="5400"
+              fill="#1a2236"
               fontFamily="system-ui, sans-serif"
-              fontWeight="500"
+              fontWeight="700"
             >
-              {label}
+              RJ · Sede
             </text>
           </g>
-        ))}
-
-        <g>
-          <circle
-            cx={sede[0]}
-            cy={sede[1]}
-            r={4}
-            fill="oklch(0.70 0.17 45)"
-            opacity={0.15}
-          />
-          <circle
-            cx={sede[0]}
-            cy={sede[1]}
-            r={1.6}
-            fill="oklch(0.70 0.17 45)"
-          />
-          <text
-            x={sede[0] + 2.5}
-            y={sede[1] + 0.8}
-            fontSize="2.2"
-            fill="oklch(0.18 0.03 260)"
-            fontFamily="system-ui, sans-serif"
-            fontWeight="600"
-          >
-            RJ · Sede
-          </text>
-        </g>
-      </svg>
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 font-mono-tag text-ink-muted text-[10px] tracking-[0.18em]">
-        Cobertura Nacional · Ilustrativo
+        </svg>
+      </div>
+      <div className="mt-4 text-center font-mono-tag text-ink-muted text-[10px] tracking-[0.18em]">
+        Mobilização Nacional · Ilustrativo
       </div>
     </div>
   );
@@ -472,45 +444,15 @@ function Coverage() {
             Atuação em todo o<br />território nacional.
           </h2>
           <p className="mt-6 text-ink-muted text-[16px] leading-[1.7] max-w-xl">
-            Mobilizamos equipes técnicas para qualquer região do país.
-            Estrutura logística preparada para sinistros de média e grande
-            complexidade, com base operacional no Rio de Janeiro e rede
-            técnica atuando em todas as cinco regiões do Brasil.
+            Mobilizamos equipes técnicas para qualquer região do país a partir
+            da base operacional no Rio de Janeiro. A mobilização é planejada
+            conforme a urgência e a complexidade do caso.
           </p>
-          <div className="mt-12 grid grid-cols-2 gap-x-10 gap-y-8 max-w-lg">
-            <div>
-              <div className="font-mono-tag text-ink-muted/70 mb-2">
-                Tempo de Resposta
-              </div>
-              <div className="font-display font-semibold text-ink text-[28px] leading-none tracking-tight">
-                ≤ 72h
-              </div>
-            </div>
-            <div>
-              <div className="font-mono-tag text-ink-muted/70 mb-2">
-                Bases Técnicas
-              </div>
-              <div className="font-display font-semibold text-ink text-[28px] leading-none tracking-tight">
-                RJ · SP · PR
-              </div>
-            </div>
-            <div>
-              <div className="font-mono-tag text-ink-muted/70 mb-2">
-                Regiões Cobertas
-              </div>
-              <div className="font-display font-semibold text-ink text-[28px] leading-none tracking-tight">
-                5 / 5
-              </div>
-            </div>
-            <div>
-              <div className="font-mono-tag text-ink-muted/70 mb-2">
-                Atuação Internacional
-              </div>
-              <div className="font-display font-semibold text-ink text-[28px] leading-none tracking-tight">
-                NFPA
-              </div>
-            </div>
-          </div>
+          <p className="mt-4 text-ink-muted text-[16px] leading-[1.7] max-w-xl">
+            Para sinistros no estado do Rio de Janeiro, atendemos ocorrências
+            de qualquer porte. Para demais regiões, atuamos em sinistros de
+            média e alta complexidade.
+          </p>
         </div>
         <div className="relative">
           <BrazilMap />
