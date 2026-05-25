@@ -638,9 +638,9 @@ function Clients() {
     { name: "Badim", src: "/clients/badim.png", scale: 1.5 },
     { name: "BR Marinas", src: "/clients/br-marinas.jpg" },
     { name: "Bell-Art", src: "/clients/bell-art.jpg" },
-    { name: "Multilog", src: "/clients/multilog.webp", scale: 1.4 },
+    { name: "Multilog", src: "/clients/multilog.webp", scale: 1.8 },
     { name: "TCI BPO", src: "/clients/tci-bpo.png" },
-    { name: "Trem do Corcovado", src: "/clients/trem-corcovado.png", scale: 1.4 },
+    { name: "Trem do Corcovado", src: "/clients/trem-corcovado.png", scale: 1.6 },
   ];
   return (
     <section id="clientes" className="bg-surface">
