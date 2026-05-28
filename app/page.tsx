@@ -349,14 +349,15 @@ function BrazilMap() {
   const H = 194010;
   const sede: [number, number] = [152860, 135140];
 
-  // Arrows fan from RJ across the interior. RS and Ceará anchor the ends;
-  // middle four are spread for even visual spacing, each head inside its state.
+  // RS and Ceará anchor the fan ends (kept fixed). The four middle arrows
+  // target the centroids of marked regions so each head lands dead-center:
+  // MS, Rondônia, Amazonas, Pará.
   const destinations: [number, number][] = [
     [101977, 175926],
-    [85000, 145000],
-    [62000, 95000],
-    [58000, 50000],
-    [112000, 45000],
+    [97813, 128066],
+    [56416, 80286],
+    [48538, 45866],
+    [107604, 45078],
     [169852, 53374],
   ];
 
