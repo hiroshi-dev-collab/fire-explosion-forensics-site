@@ -349,15 +349,16 @@ function BrazilMap() {
   const H = 194010;
   const sede: [number, number] = [152860, 135140];
 
-  // Endpoints fanned at even ~28° steps around RJ for visual balance,
-  // each kept inside Brazilian territory.
+  // Arrows fanned at even ~28° steps around RJ for visual balance.
+  // RS and Ceará anchor the fan ends; middle arrows keep near-original
+  // lengths but are tuned so each head lands inside its state.
   const destinations: [number, number][] = [
-    [102348, 176045],
-    [76295, 150022],
-    [57750, 104240],
-    [86863, 66806],
-    [128056, 48623],
-    [169908, 54936],
+    [101977, 175926],
+    [93904, 146282],
+    [76564, 111084],
+    [56615, 37203],
+    [127453, 48803],
+    [169852, 53374],
   ];
 
   const arrows = destinations.map(([x, y]) => {
