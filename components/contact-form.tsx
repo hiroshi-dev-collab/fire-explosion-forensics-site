@@ -1,6 +1,11 @@
 "use client";
 
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, MessageCircle, CheckCircle2, AlertCircle } from "lucide-react";
+
+const ACCESS_KEY = "dd3f1d6b-0aeb-4874-bf46-73c256b87c48";
+
+type Status = "idle" | "sending" | "success" | "error";
 
 function Field({
   label,
@@ -30,9 +35,38 @@ function Field({
 }
 
 export function ContactForm() {
+  const [status, setStatus] = useState<Status>("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setStatus("sending");
+
+    const formData = new FormData(form);
+    formData.append("access_key", ACCESS_KEY);
+    formData.append("subject", "Nova solicitação — site Lauden Experts");
+    formData.append("from_name", "Lauden Experts — Site");
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
     <form
-      onSubmit={(e) => e.preventDefault()}
+      onSubmit={handleSubmit}
       className="bg-white/[0.03] border border-white/10 p-8 lg:p-10 backdrop-blur-sm"
     >
       <div className="grid sm:grid-cols-2 gap-5">
@@ -44,9 +78,15 @@ export function ContactForm() {
       <div className="mt-7 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5">
         <button
           type="submit"
-          className="inline-flex items-center justify-center gap-2 h-12 px-7 bg-flame text-white text-[14px] font-medium rounded-sm hover:brightness-110 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          disabled={status === "sending" || status === "success"}
+          className="inline-flex items-center justify-center gap-2 h-12 px-7 bg-flame text-white text-[14px] font-medium rounded-sm hover:brightness-110 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          Enviar solicitação <ArrowRight className="w-4 h-4" />
+          {status === "sending"
+            ? "Enviando..."
+            : status === "success"
+            ? "Enviado!"
+            : "Enviar solicitação"}{" "}
+          {status !== "success" && <ArrowRight className="w-4 h-4" />}
         </button>
 
         <span className="font-mono-tag text-white/40 text-center sm:px-1">
@@ -60,6 +100,25 @@ export function ContactForm() {
           <MessageCircle className="w-4 h-4" /> Falar agora pelo WhatsApp
         </a>
       </div>
+
+      {status === "success" && (
+        <div className="mt-6 flex items-start gap-3 text-emerald-300 text-[13.5px]">
+          <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0" />
+          <span>
+            Solicitação enviada com sucesso. Nosso time entrará em contato em
+            até 24 horas.
+          </span>
+        </div>
+      )}
+      {status === "error" && (
+        <div className="mt-6 flex items-start gap-3 text-red-300 text-[13.5px]">
+          <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
+          <span>
+            Não foi possível enviar agora. Tente novamente em alguns instantes
+            ou fale pelo WhatsApp.
+          </span>
+        </div>
+      )}
     </form>
   );
 }
