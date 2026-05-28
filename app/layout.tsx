@@ -33,6 +33,7 @@ export const metadata: Metadata = {
     "perícia de incêndio",
     "perícia de explosão",
     "investigação de incêndio",
+    "engenharia legal",
     "engenharia forense",
     "perícia ambiental",
     "investigação de acidentes",
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Lauden Experts — Perícias Forenses de Engenharia",
+    title: "Lauden Experts — Perícias de Engenharia Legal",
     description:
       "Investigação de incêndio, explosão, acidentes e perícia ambiental. Laudos técnicos com rigor e validação internacional.",
     url: "/",
@@ -55,13 +56,13 @@ export const metadata: Metadata = {
         url: "/lauden-og-banner.png",
         width: 1200,
         height: 630,
-        alt: "Lauden Experts — Engenharia Forense",
+        alt: "Lauden Experts — Engenharia Legal",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lauden Experts — Perícias Forenses de Engenharia",
+    title: "Lauden Experts — Perícias de Engenharia Legal",
     description:
       "Laudos técnicos com fundamentação rigorosa e validação internacional. Atendimento confidencial em todo o Brasil.",
     images: ["/lauden-og-banner.png"],

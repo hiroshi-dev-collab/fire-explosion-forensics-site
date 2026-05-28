@@ -37,7 +37,7 @@ function Hero() {
     >
       <Image
         src="/hero-fire-investigation.jpg"
-        alt="Investigador forense documentando cena de incêndio em estrutura industrial"
+        alt="Perito documentando cena de incêndio em estrutura industrial"
         fill
         priority
         sizes="100vw"
@@ -57,7 +57,7 @@ function Hero() {
             <span className="text-flame">rigor técnico e respaldo normativo</span>.
           </h1>
           <p className="mt-8 max-w-2xl text-white/72 text-[17px] lg:text-[19px] leading-[1.65]">
-            Assessoria técnica e perícia de engenharia para seguradoras,
+            Assistência técnica e perícia de engenharia para seguradoras,
             escritórios de advocacia e empresas. Laudos fundamentados na
             NFPA 921, nas normas da ABNT e em protocolos internacionalmente
             reconhecidos.
@@ -157,7 +157,7 @@ function FireService() {
     "Identificação dos fatores contribuintes",
     "Avaliação das medidas de segurança contra incêndio e pânico",
     "Proposição de recomendações de segurança",
-    "Assistência técnica a processos judiciais, arbitrais e de seguros",
+    "Assistência técnica a processos judiciais, arbitrais e de seguros (regulação de sinistros)",
   ];
   return (
     <section id="areas" className="surface-navy relative overflow-hidden">
@@ -349,13 +349,15 @@ function BrazilMap() {
   const H = 194010;
   const sede: [number, number] = [152860, 135140];
 
+  // Endpoints fanned at even ~28° steps around RJ for visual balance,
+  // each kept inside Brazilian territory.
   const destinations: [number, number][] = [
-    [48538, 45866],
-    [169852, 53374],
-    [157345, 93035],
-    [91270, 89386],
-    [23169, 71975],
-    [101977, 175926],
+    [102348, 176045],
+    [76295, 150022],
+    [57750, 104240],
+    [86863, 66806],
+    [128056, 48623],
+    [169908, 54936],
   ];
 
   const arrows = destinations.map(([x, y]) => {
@@ -622,7 +624,6 @@ function Credentials() {
 
 function Clients() {
   const clients: { name: string; src: string; href?: string; scale?: number }[] = [
-    { name: "AMBEV", src: "/clients/ambev.jpg", href: "https://www.ambev.com.br", scale: 1.4 },
     { name: "Cosan", src: "/clients/cosan.png", href: "https://www.cosan.com.br" },
     { name: "Copersucar", src: "/clients/copersucar.png", href: "https://www.copersucar.com.br" },
     { name: "EMS Farmacêutica", src: "/clients/ems.jpg", href: "https://www.ems.com.br", scale: 1.4 },
@@ -649,7 +650,7 @@ function Clients() {
           <div className="max-w-2xl">
             <span className="font-mono-tag text-flame">06 / Clientes</span>
             <h2 className="mt-4 font-display font-semibold text-ink text-[32px] lg:text-[44px] leading-[1.05] tracking-tight">
-              Empresas que confiaram em nossa atuação.
+              Empresas que confiaram em nossos serviços.
             </h2>
           </div>
           <p className="text-[12.5px] text-ink-muted max-w-xs">
@@ -708,13 +709,13 @@ function About() {
         <div className="lg:col-span-7 order-2 lg:order-1">
           <span className="font-mono-tag text-flame">07 / Sobre a Lauden</span>
           <h2 className="mt-4 font-display font-semibold text-ink text-[32px] lg:text-[48px] leading-[1.04] tracking-[-0.03em]">
-            Engenharia forense a serviço do seu resultado.
+            Engenharia legal a serviço do seu resultado.
           </h2>
           <p className="mt-7 text-ink-muted text-[16.5px] leading-[1.75] max-w-2xl">
             A Lauden Experts nasceu para suprir uma demanda específica do
-            mercado brasileiro: perícias técnicas conduzidas com o mesmo rigor
-            das principais consultorias forenses internacionais, mas com foco
-            total no resultado do cliente.
+            mercado brasileiro: perícias técnicas conduzidas com o rigor das
+            principais consultorias internacionais de engenharia legal, sempre
+            orientadas ao resultado do cliente.
           </p>
           <p className="mt-4 text-ink-muted text-[16.5px] leading-[1.75] max-w-2xl">
             Reunimos profissionais com formação de alto nível, certificações
