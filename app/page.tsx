@@ -37,7 +37,7 @@ function Hero() {
     >
       <Image
         src="/hero-fire-investigation.jpg"
-        alt="Perito documentando cena de incêndio em estrutura industrial"
+        alt="Perito documentando local de incêndio em estrutura industrial"
         fill
         priority
         sizes="100vw"

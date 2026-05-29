@@ -31,22 +31,26 @@ export const metadata: Metadata = {
   authors: [{ name: "Lauden Experts" }],
   keywords: [
     "perícia de incêndio",
-    "perícia de explosão",
+    "perícia técnica de incêndio",
     "investigação de incêndio",
-    "engenharia legal",
-    "engenharia forense",
+    "laudo pericial de incêndio",
+    "perícia para seguradora",
+    "regulação de sinistros",
+    "assistência técnica pericial",
+    "perícia de explosão",
+    "análise de causa-raiz",
     "perícia ambiental",
-    "investigação de acidentes",
-    "laudo técnico",
     "perícia de engenharia",
+    "engenheiro perito",
+    "NFPA 921",
   ],
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Lauden Experts — Perícias de Engenharia Legal",
+    title: "Lauden Experts — Perícias de Engenharia",
     description:
-      "Investigação de incêndio, explosão, acidentes e perícia ambiental. Laudos técnicos com rigor e validação internacional.",
+      "Investigação de incêndio, explosão, acidentes e perícia ambiental. Laudos técnicos com rigor metodológico e fundamentação na NFPA 921.",
     url: "/",
     siteName: "Lauden Experts",
     type: "website",
@@ -62,9 +66,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lauden Experts — Perícias de Engenharia Legal",
+    title: "Lauden Experts — Perícias de Engenharia",
     description:
-      "Laudos técnicos com fundamentação rigorosa e validação internacional. Atendimento confidencial em todo o Brasil.",
+      "Laudos técnicos com fundamentação rigorosa e metodologia auditável. Atendimento confidencial em todo o Brasil.",
     images: ["/lauden-og-banner.png"],
   },
   robots: {
